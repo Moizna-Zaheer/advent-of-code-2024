@@ -1,0 +1,21 @@
+# Corrected file path
+with open(r"F:\Advent of Code\day1\problem1.txt") as f:
+    lines = f.read().strip().split("\n")  # Read and split the file into lines
+
+left = []
+right = []
+
+# Loop through each line to process it
+for line in lines:
+    l, r = map(int, line.split())  # Split each line into two numbers
+    left.append(l)                 # Add to left list
+    right.append(r)                # Add to right list
+
+similarity_score = 0
+
+# Calculate the similarity score
+for num in left:
+    count_in_right = right.count(num)  # Count occurrences of num in the right list
+    similarity_score += num * count_in_right  # Increment similarity score
+
+print("Similarity Score:", similarity_score)

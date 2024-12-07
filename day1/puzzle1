@@ -1,0 +1,22 @@
+file_path = r"F:\Advent of Code\day1\problem1.txt"
+
+# Open the file and read its contents
+with open(file_path, "r") as f:
+    lines = f.read().strip().split("\n")  # Read and split the file into lines
+
+left = []
+right = []
+
+# Loop through each line
+for line in lines:
+    l, r = map(int, line.split())  # Split each line into two numbers
+    left.append(l)                # Add to left list
+    right.append(r)               # Add to right list
+
+left.sort()  # Sort the left list
+right.sort()  # Sort the right list
+
+# Calculate the total distance
+total_distance = sum(abs(l - r) for l, r in zip(left, right))
+
+print("Total distance:", total_distance)
